@@ -1,8 +1,8 @@
 const User = require('./user.model');
-const Product = require('./product.model');
+const Post = require('./../post/post.model');
 
 const relate = async () => {
-    Product.belongsTo(User, {foreignKey: "userId"});
+    Post.belongsTo(User, { foreignKey: "userId" });
 }
 
 module.exports = relate;
