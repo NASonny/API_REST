@@ -5,7 +5,7 @@ exports.createcom = async (req, res, next) => {
         let comments = await Comment.create({
             comment: req.body.comment
         });
-        res.status(201).json(comments)
+        res.status(201).json(comments);
     } catch (e) {
         res.status(400).json({ error: e });
     }
@@ -15,12 +15,12 @@ exports.getById = async (req, res) => {
     try {
         let comments = await Comment.findAll({
             where: {
-                id: req.params.id
+                postId: req.params.id
             }
         });
-        res.status(200).json(comments)
+        res.status(200).json(comments);
     } catch (e) {
-        res.status(400).json({ error: "impossible de récupérer les posts" })
+        res.status(400).json({ error: "impossible de récupérer les posts" });
     }
 }
 
@@ -51,7 +51,7 @@ exports.delete = async (req, res, next) => {
                 id: req.params.id
             }
         });
-        res.status(201).json(comments)
+        res.status(201).json(comments);
     } catch (e) {
         res.status(400).json({ error: "Ce compte existe déjà." });
     }

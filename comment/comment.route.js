@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router();
-const commentController = require("comment.controller")
+const commentController = require("./comment.controller")
 const limiter = require('../middleware/ratelimiter.middleware.js');
-const auth = require("../middleware/auth.js")
+const auth = require("../auth/auth.middleware.js")
 
 router.post('/posts/:id/comments',auth, limiter,commentController.createcom)
 
