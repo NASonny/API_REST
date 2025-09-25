@@ -1,6 +1,6 @@
 const express = require('express');
-const userRoute = require("./route/user.route");
-const productRoute = require("./route/product.route");
+const userRoute = require("./user/user.route");
+//const productRoute = require("./route/product.route");
 require('./model/index')
 const relate =  require("./model/relation");
 const path = require("path");

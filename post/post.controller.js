@@ -19,6 +19,7 @@ exports.GetById = async (req, res) => {
                 id: req.params.id
             }
         });
+        produit.picture = "http://localhost:3000/images/" + post.picture;
         res.status(200).json(post)
     } catch (e) {
         res.status(400).json('Impossible de récupérer le post')
@@ -58,9 +59,6 @@ exports.Update = async (req, res) => {
         }
         if (req.body.contenu) {
             post.contenu = req.body.contenu;
-        }
-        if (req.body.picture) {
-            post.picture = req.body.picture;
         }
         post.save();
         res.status(201).json(post);

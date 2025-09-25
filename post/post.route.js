@@ -11,7 +11,7 @@ router.get('/', limiter, postController.GetAll);
 router.get('/:id', limiter, postController.GetById);
 
 //Création
-router.post('/', auth, multerMiddleware, postController.Create);
+router.post('/', multerMiddleware, postController.Create);
 
 //Modification
 router.put('/:id', auth, postController.Update);
