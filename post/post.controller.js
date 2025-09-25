@@ -28,14 +28,23 @@ exports.GetById = async (req, res) => {
 //Créer un post
 exports.Create = async (req, res) => {
     try {
-        let body = JSON.parse(req.body.post);
-        if (req.file) {
-            body.picture = req.file.filename
+        let body;
+
+
+        if (typeof req.body.post === "string") {
+            body = JSON.parse(req.body.post);
+        } else {
+            body = req.body;
         }
+
+        if (req.file) {
+            body.picture = req.file.filename;
+        }
+
         let post = await Post.create({
             titre: body.titre,
             contenu: body.contenu,
-            picture: body.picture
+            picture: body.picture || null, 
         });
         res.status(201).json(post);
     } catch (e) {

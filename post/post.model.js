@@ -9,7 +9,8 @@ const Post = db.define('Post', {
         type: DataTypes.STRING
     },
     picture: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: true
     }
 }, {
     tableName: "post"
