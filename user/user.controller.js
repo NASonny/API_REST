@@ -5,7 +5,9 @@ require('dotenv').config()
 
 exports.getAll = async (req, res) => {
     try {
-        let userList = await User.findAll()
+        let userList = await User.findAll({
+            attributes: ["id", "username", "email", "createdAt"]
+        })
         res.status(200).json(userList)
     } catch (e) {
         res.status(400).json({ error: "Impossible de récupérer les utilisateurs" })

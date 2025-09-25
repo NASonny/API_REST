@@ -3,6 +3,7 @@ const router = express.Router();
 const userController = require('../user/user.controller');
 
 router.get('/:id', userController.getById);
+router.get('/', userController.getAll);
 router.put('/:id', userController.update);
 router.delete('/:id', userController.delete);
 
