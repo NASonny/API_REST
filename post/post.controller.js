@@ -67,7 +67,7 @@ exports.Update = async (req, res) => {
     }
 }
 
-exports.delete = async (req, res, next) => {
+exports.Delete = async (req, res, next) => {
     try {
         let post = await Post.destroy({
             where: {

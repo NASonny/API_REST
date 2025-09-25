@@ -1,4 +1,4 @@
-const Post = require('../../post/post.model')
+const Post = require('./post.model')
 
 const checkPost = async (req, res, next) => {
     let post = await Post.findOne({
