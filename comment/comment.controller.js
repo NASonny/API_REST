@@ -1,9 +1,19 @@
 const Comment = require("./comment.model")
+const Post = require("../post/post.model")
 
 exports.createcom = async (req, res, next) => {
     try {
+        const post = await Post.findOne({
+            where:{
+                id:req.params.id
+            }
+        });
+        if (!post){
+            return res.status(404).json({ error: "Il n'y a pas de post avec cet id" });
+        }
         let comments = await Comment.create({
-            comment: req.body.comment
+            comment: req.body.comment,
+            postId:post.id
         });
         res.status(201).json(comments);
     } catch (e) {

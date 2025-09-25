@@ -30,7 +30,8 @@ exports.signin = async (req,res,next) => {
         const hash = bcryptjs.hashSync(req.body.password, 10)
         let user = await User.create({
             email: req.body.email,
-            password: hash
+            password: hash,
+            username:req.body.username
         });
         res.status(201).json(user)
     }catch(e){

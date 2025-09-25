@@ -1,4 +1,3 @@
-const { JSON } = require('sequelize');
 const Post = require('./post.model');
 
 //Récupérer tous les posts
