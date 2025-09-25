@@ -17,7 +17,8 @@ exports.getById = async (req, res) => {
         let user = await User.findOne({
             where: {
                 id: req.params.id
-            }
+            },
+            attributes: ["id", "username", "email", "createdAt"]
         });
         res.status(200).json(user)
     } catch (e) {

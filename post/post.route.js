@@ -11,10 +11,10 @@ router.get('/', limiter, postController.GetAll);
 router.get('/:id', limiter, postController.GetById);
 
 //Création
-router.post('/', multerMiddleware, postController.Create);
+router.post('/', auth, multerMiddleware, postController.Create);
 
 //Modification
-router.put('/:id', auth, postController.Update);
+router.put('/:id', auth, auth, postController.Update);
 
 //Suppression
 router.delete('/:id', auth, checkPost, postController.Delete);
